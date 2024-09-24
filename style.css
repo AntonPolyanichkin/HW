@@ -26,83 +26,45 @@ input::-ms-clear{display: none;}
 button{cursor:pointer;}
 button::-moz-focus-inner {padding: o;border: 0;}
 a, a:visited{text-decoration: none;}
-/*ul li{list-style: none;}*/
+ul li{list-style: none;}
 img{vertical-align: top;}
 
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+h1{
+	font-size: 40px;
+   margin: 20px;
+	color: aliceblue;
+}
+h2{
+	font-size: 20px;
+   margin: 20px;
+	color: aliceblue;
+}
 body{
 	background-color: #333;
 	font-family: Arial, Helvetica, sans-serif;
 }
-.JacobFont{
-	font-size: 30px;
-	display: inline-block;
-	color: aliceblue;
-	font-family:'Times New Roman', Times, serif ;
-	margin: 30px 0px 0px 30px;
-}
-.JacobPhoto{
-	height: 400px;
-	width: auto;
-	margin: 30px 0px 0px 65px;
-	border: 5px solid rgb(255, 255, 255);
-	border-radius: 10px;
-	box-shadow: 1px 4px 6px 10px rgb(34, 34, 34);
-}
-table{
-	width: auto;
-   max-width: 600px;
+.htmlColor{
+	background-color: rgb(82, 82, 255);
+	border: 3px solid #000000;
 	border-radius: 5px;
-	margin: -350px 0px 0px 400px;
-	position: relative;
+	color: black;
 }
-table,th,td{
-	border: 2px solid white;
-	border-collapse: collapse ;
-	color: white;
-	font-size: 20px;
-	font-family: 'Times New Roman', Times, serif;
-	text-align: center;
-
+.cssColor{
+	background-color: #ffbd43;
+	border: 3px solid #000000;
+	border-radius: 5px;
+	color: black;
 }
-.filmography{
-	font-size: 30px;
-	font-family: 'Times New Roman', Times, serif;
-	font-weight: bold;
-	color: white;
-	margin: 150px 0px 0px 80px;
-
+.jsColor{
+background-color: rgb(255, 255, 75);
+	border: 3px solid #000000;
+	border-radius: 5px;
+color: black;
 }
-ul{
+.hw{
+	display: inline-block;
 	font-size: 25px;
-	font-weight: lighter;
-	font-family: 'Times New Roman', Times, serif;
 	color: white;
-	padding: 10px 0px 0px 0px;
-}
-li{
-	padding: 10px 0px 0px 0px;
-	list-style: square;
-	color:white;
-
-}
-.inst{
-	height:50px ;
-	width: auto;
-	margin: 100px 0px 30px 30px ;
-}
-.facebook{
-	height:50px ;
-	width: auto;
-	margin: 98px 0px 60px 30px ;
-	border-radius: 10px;
-}
-.main{
-	color: rgb(0, 0, 0);
-	font-size: 30px;
-	margin: 0px 0px 0px 30px;
-	background-color: azure;
-	border: 5px solid black;
-	border-radius: 10px;
-	
+	margin: 40px 30px 30px 28px;
 }
