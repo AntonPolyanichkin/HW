@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Movie</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="myBody">
+	<div class="myVideo">
+		<iframe src="https://www.youtube.com/embed/7PkzUIq5Fq0?si=hdtpWgD11RNZCea-&start=26&autoplay=1&mute=1&rel=0"
+			 title="YouTube video player"
+			 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+		</iframe>
+  </div>
+	<div class="movie-container">
+
+		<div class="myPoster">
+			<img src="/HW_10/img/venomIMG.jpeg" alt="Venom: Last Dance">
+		</div>
+
+		<div class="movie-details">
+			<table>
+				<tr>
+					<td><strong>Rating:</strong></td>
+					<td>16+</td>
+				</tr>
+				<tr>
+					<td><strong>Year:</strong></td>
+					<td>2024</td>
+				</tr>
+				<tr>
+					<td><strong>Original Name:</strong></td>
+					<td>Venom: The Last Dance</td>
+				</tr>
+				<tr>
+					<td><strong>Director:</strong></td>
+					<td>Kelli Marcel</td>
+				</tr>
+				<tr>
+					<td><strong>Rental Period:</strong></td>
+					<td>23.10.2024 - 27.11.2024</td>
+				</tr>
+				<tr>
+					<td><strong>Viewer Rating:</strong></td>
+					<td>6.2</td>
+				</tr>
+				<tr>
+					<td><strong>Critics Rating:</strong></td>
+					<td>41%</td>
+				</tr>
+				<tr>
+					<td><strong>Language:</strong></td>
+					<td>Ukrainian</td>
+				</tr>
+				<tr>
+					<td><strong>Genre:</strong></td>
+					<td>Action, Science Fiction</td>
+				</tr>
+				<tr>
+					<td><strong>Duration:</strong></td>
+					<td>1:50</td>
+				</tr>
+				<tr>
+					<td><strong>Producer:</strong></td>
+					<td>USA</td>
+				</tr>
+				<tr>
+					<td><strong>Production Studio:</strong></td>
+					<td>Sony Pictures</td>
+				</tr>
+				<tr>
+					<td><strong>Screenplay:</strong></td>
+					<td>Kelli Marcel</td>
+				</tr>
+				<tr>
+					<td><strong>Starring:</strong></td>
+					<td>Tom Hardy, Chiwetel Ejiofor, Juno Temple</td>
+				</tr>
+				<tr>
+					<td><strong>Inclusive Adaptation:</strong></td>
+					<td>Adapted for people with hearing loss.</td>
+				</tr>
+			</table>
+		</div>
+
+
+		<div class="seatingArea">
+
+		</div>
+
+	</div>
+
+	<script>
+		//Функція, що робить таблицю
+		function getTable(row = 1, col = 1) {
+			const tagTable = document.createElement('table');
+			tagTable.className = 'seatingTable';
+			const caption = document.createElement('caption');
+			caption.innerText = 'Оберіть місця';
+			tagTable.append(caption);
+			let seatNumber = 1;
+			for (let myRow = 0; myRow < row; myRow++) {
+				let myNewRow = document.createElement('tr');
+				for (let myCol = 0; myCol < col; myCol++) {
+					let myNewCol = document.createElement('td');
+					let but = document.createElement('button');
+					but.className = 'seatBut';
+					but.innerText = `Місце:${seatNumber++}, ряд ${myRow + 1}`;
+					myNewCol.append(but);
+					myNewRow.append(myNewCol);
+				}
+				tagTable.append(myNewRow);
+			}
+			return tagTable;
+		}
+		//Створю кнопку, щоб можна було підтвердити замовлення
+		function getBtn() {
+			const resBut = document.createElement('button')
+			resBut.className = "btnResult"
+			resBut.innerText = "Підтвердити замовлення"
+			return resBut
+		}
+		//Виконую функцію, що реалізує обрання відповідного місця.
+		function showSelectedSeat(e) {
+			if (e.target.classList.contains('seatBut')) {
+				e.target.classList.toggle('clickONseat')
+			}
+		}
+		//Обчислюю вартість обаних квитків 
+		let price = 0
+		function countPriceSeat(e) {
+			if (e.target.classList.contains('seatBut')) {
+				if (e.target.classList.contains('clickONseat')) {
+					price += 350
+					e.target.classList.add('clickONseat')
+				}
+				else {
+					price -= 350
+					e.target.classList.remove('clickONseat')
+				}
+			}
+
+		}
+		//Виводжу вікно на екран
+		function showWindowWithPrice(e) {
+			if (e.target.classList.contains('btnResult')) {
+				let res = confirm(`Вартість вашого замовлення: ${price}`)
+				if (res === true) {
+					alert('Дякую за замовлення')
+				}
+				else{
+					alert('Оберіть бажані місця :)')
+				}
+			}
+		}
+		//Запушую таблицю + обробник подій
+		function run() {
+			const resBut = getBtn()
+			const table = getTable(5, 4);
+			const container = document.querySelector('.seatingArea');
+			container.append(table);
+			container.append(resBut);
+			document.addEventListener('click', showSelectedSeat);
+			document.addEventListener('click', countPriceSeat);
+			document.addEventListener('click', showWindowWithPrice)
+		}
+		run();
+
+	</script>
+</body>
+
+</html>
